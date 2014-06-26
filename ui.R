@@ -33,11 +33,11 @@ shinyUI(fluidPage(
     
     # Show a plot of the generated distribution
     mainPanel(
-      plotOutput("distPlot"),
-      h2("Tabla de datos", align='center' ),
-      HTML('<center>'),
-      tableOutput("datos"),
-      HTML('</center>')
+      plotOutput("distPlot") #,
+#       h2("Tabla de datos", align='center' ) ,
+#       HTML('<center>'),
+#       tableOutput("datos"),
+#       HTML('</center>')
     )
   )
 ))

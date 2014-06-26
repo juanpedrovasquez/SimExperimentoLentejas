@@ -28,18 +28,18 @@ shinyServer(function(input, output) {
     
 #     g <- qplot(x=tiradaS$Tirada,y=tiradaS$Lentejas, geom=c('point','smooth'),main=paste('Lentejas =',A0,'exp(',M0,' * Tirada);  R²=',R2),ylab='Lentejas en cuadro blanco', xlab='Número de Tirada')  
     g <- qplot(x=tiradaS$Tirada,y=tiradaS$Lentejas, geom=c('point','smooth'),main=bquote(Lentejas~"="~.(A0)~e^paste(.(M0)~Tirada)~";"~~~R^2~"="~.(R2)),ylab='Lentejas en cuadro blanco', xlab='Número de Tirada')
-    g
+    g+geom_text(label=tiradaS$Lentejas,hjust=0, vjust=0, size=5)
     
   })
 
   
-output$datos <- renderTable({
-  set.seed(19)
-  poblac <- input$poblac
-  factorCrecim <- input$factorCrecim
-  numTiradas <- input$numTiradas    
-  tiradaS
-})
+# output$datos <- renderTable({
+#   set.seed(19)
+#   poblac <- input$poblac
+#   factorCrecim <- input$factorCrecim
+#   numTiradas <- input$numTiradas    
+#   tiradaS
+# })
 
 
 })
