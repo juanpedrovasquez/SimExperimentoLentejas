@@ -26,7 +26,8 @@ shinyServer(function(input, output) {
     A0 <- round(exp(fit$coefficients[[1]]),2)
     R2 <- round(summary(fit)$r.squared,3)
     
-    g <- qplot(x=tiradaS$Tirada,y=tiradaS$Lentejas, geom=c('point','smooth'),main=paste('Lentejas =',A0,'exp(',M0,' * Tirada);  R²=',R2),ylab='Lentejas en cuadro blanco', xlab='Número de Tirada')  
+#     g <- qplot(x=tiradaS$Tirada,y=tiradaS$Lentejas, geom=c('point','smooth'),main=paste('Lentejas =',A0,'exp(',M0,' * Tirada);  R²=',R2),ylab='Lentejas en cuadro blanco', xlab='Número de Tirada')  
+    g <- qplot(x=tiradaS$Tirada,y=tiradaS$Lentejas, geom=c('point','smooth'),main=bquote(Lentejas~"="~.(A0)~e^paste(.(M0)~Tirada)~";"~~~R^2~"="~.(R2)),ylab='Lentejas en cuadro blanco', xlab='Número de Tirada')
     g
     
   })
